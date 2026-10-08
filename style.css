@@ -1,0 +1,165 @@
+:root {
+  --primary: #1e40af;
+  --bg: #f1f2f6;
+  --surface: #ffffff;
+  --text: #16181d;
+  --muted: #6b7280;
+  --border: #e3e5ec;
+
+  --font:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius: 20px;
+  --gap: 1rem;
+  --max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+  /* Define que a largura e altura dos elementos incluem o padding e a borda */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  /* Quebra palavras longas */
+  overflow-wrap: break-word;
+}
+
+/* Títulos e Parágrafos */
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Lista */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.list-item + .list-item:before {
+  content: "•";
+  margin: 0 0.5rem;
+  color: var(--muted);
+}
+
+/* Texto secundário */
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Centraliza o conteúdo e limita a largura. Usar dentro de header, section, main e footer: <main class="container"></main> */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* Seção */
+.section {
+  padding: 1.5rem 0;
+}
+
+/* Itens lado a lado, com espaço entre eles, quebrando de linha no celular: <div class="wrapper"></div> */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap);
+}
+
+/* Header */
+.header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1.5rem 0;
+}
+
+/* Toolbar */
+.toolbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: var(--gap) 0;
+}
+
+/* Footer */
+.footer {
+  padding: 1.5rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Os .card se distribuem em colunas automáticas: <div class="grid"><article class="card"></article></div> */
+.grid {
+  display: grid;
+  /* auto-fill: preenche a linha com o máximo de colunas possíveis */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  /* dense: preenche os espaços vazios */
+  grid-auto-flow: dense;
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+/* Media Query: tela com largura máxima de 480px */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+}
