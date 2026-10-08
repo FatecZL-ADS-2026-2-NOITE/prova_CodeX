@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="custom-scrollbar">
   <!-- Cabeçalho -->
   <header class="header">
     <div class="container">
@@ -17,29 +17,69 @@
     </div>
   </header>
 
-  <!-- Barra de filtro e busca -->
-  <section class="toolbar">
-    <div class="container">
-      <!-- Falta inserir e estilizar a input de busca -->
-      <!-- Falta inserir e estilizar o select de filtro -->
-      <!-- DIFERENCIAL: Falta inserir e estilizar o checkbox de filtro "Apenas Disponíveis" -->
-    </div>
-  </section>
-
   <main class="container">
+    <!-- Barra de filtro e busca -->
+    <section class="toolbar">
+      <div class="container">
+        <div class="grid-1">
+          <!-- Busca -->
+          <div class="search span-2">
+            <input type="text" placeholder="Digite um título de um livro..." class="input">
+            <button class="btn">Pesquisar</button>
+          </div>
+
+          <!-- Categorias -->
+          <select name="category" id="category" class="select">
+            <option value="Programação">Programação</option>
+            <option value="Banco de Dados">Banco de Dados</option>
+            <option value="Sistemas Operacionais">Sistemas Operacionais</option>
+            <option value="Inteligência Artificial">Inteligência Artificial</option>
+            <option value="Segurança">Segurança</option>
+          </select>
+
+          <!-- Diferencial: Apenas Disponíveis -->
+          <label>
+            <input type="checkbox">
+            <span>Apenas Disponíveis</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Status -->
+    <section class="status">
+      <div class="wrapper">
+        <p class="muted">1 livro(s) encontrado(s)</p>
+
+        <button class="btn small">&times; limpar pesquisa</button>
+      </div>
+    </section>
+
     <!-- Cards -->
     <section class="section">
-      <div class="grid" id="books">
-        <div class="card">CARD 1</div>
-        <div class="card">CARD 2</div>
-        <div class="card">CARD 3</div>
-        <div class="card">CARD 4</div>
-        <div class="card">CARD 5</div>
-        <div class="card">CARD 6</div>
-        <div class="card">CARD 7</div>
-        <div class="card">CARD 8</div>
-        <div class="card">CARD 9</div>
-        <div class="card">CARD 10</div>
+      <div class="grid-2" id="books">
+        <div class="card" id="6">
+          <div class="wrapper between">
+            <p class="area">Sistemas Operacionais</p>
+            <p class="year">2019</p>
+          </div>
+
+          <p class="title">Certificação LPI-1: 101-102</p>
+          <p class="author">Luciano Antonio Siqueira</p>
+
+          <p class="description custom-scrollbar">A presente edição reflete a nova versão 5.0 dos objetivos definidos pelo Linux Professional Institute para o exame de Certificação LPI nível 1, efetivos a partir de 2019. Assim como em atualizações anteriores, o foco é reduzir a ênfase em tecnologias que estão ficando defasadas e dar mais atenção àquelas que vêm sendo adotadas por padrão na maioria das distribuições Linux</p>
+
+          <!--
+            "Disponível" quando há exemplar livre
+            "Último exemplar" quando resta apenas um.
+            "Emprestado" quando não há
+
+            if (exemplares > 1 && disponivel)   data-available="2"; <- Disponível
+            if (exemplares === 1 && disponivel) data-available="1"; <- Último exemplar
+            else data-available="0";                                <- Emprestado
+            -->
+          <p class="available text-center" data-available="1">Último exemplar</p>
+        </div>
       </div>
     </section>
   </main>
@@ -47,7 +87,7 @@
   <!-- Rodapé -->
   <footer class="footer">
     <div class="container">
-      <p class="center">&copy; 2026 <strong>CodeX</strong>. Todos os direitos reservados.</p>
+      <p class="text-center">&copy; 2026 <strong>CodeX</strong>. Todos os direitos reservados.</p>
       <ul class="list">
         <li class="list-item">Anderson dos Santos Araujo</li>
         <li class="list-item">Daniel Nascimento Gonçalves</li>

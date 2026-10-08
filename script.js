@@ -23,3 +23,11 @@ function filterBooksByCategory(category) {
   // TODO: ...
   console.log("Filtra por categoria:\n", category);
 }
+
+/*
+Filtra apenas os livros disponíveis
+*/
+function filterAvailableBooks(books) {
+  // TODO: ...
+  console.log("Livros disponíveis:\n", books);
+}
