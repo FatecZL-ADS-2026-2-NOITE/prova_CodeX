@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="custom-scrollbar">
 
 <head>
   <meta charset="UTF-8">
@@ -17,29 +17,74 @@
     </div>
   </header>
 
-  <!-- Barra de filtro e busca -->
-  <section class="toolbar">
-    <div class="container">
-      <!-- Falta inserir e estilizar a input de busca -->
-      <!-- Falta inserir e estilizar o select de filtro -->
-      <!-- DIFERENCIAL: Falta inserir e estilizar o checkbox de filtro "Apenas Disponíveis" -->
-    </div>
-  </section>
-
   <main class="container">
+    <!-- Barra de filtro e busca -->
+    <section class="toolbar" aria-label="Busca e filtros">
+      <form class="toolbar-grid" id="filters">
+        <!-- Busca -->
+        <div class="search">
+          <label for="search">Título do livro</label>
+          <input type="search" id="search" name="search" placeholder="Digite o título de um livro..." class="input">
+          <button type="submit" class="btn">Pesquisar</button>
+        </div>
+
+        <!-- Categorias -->
+        <div class="wrapper">
+          <label for="category">Categoria</label>
+          <select name="category" id="category" class="select">
+            <option value="">Todas as categorias</option>
+            <option value="Programação">Programação</option>
+            <option value="Banco de Dados">Banco de Dados</option>
+            <option value="Sistemas Operacionais">Sistemas Operacionais</option>
+            <option value="Inteligência Artificial">Inteligência Artificial</option>
+            <option value="Segurança">Segurança</option>
+          </select>
+        </div>
+
+        <!-- Diferencial: Apenas Disponíveis -->
+        <label class="checkbox" for="only-available">
+          <input type="checkbox" id="only-available" name="only-available">
+          <span>Apenas disponíveis</span>
+        </label>
+      </form>
+    </section>
+
+    <!-- Barra de Status -->
+    <section class="status" aria-label="Resultado da busca">
+      <div class="wrapper between">
+        <p class="muted">1 livro(s) encontrado(s)</p>
+
+        <button type="button" class="btn btn-small">
+          <span aria-hidden="true">&times;</span> Limpar pesquisa
+        </button>
+      </div>
+    </section>
+
     <!-- Cards -->
     <section class="section">
       <div class="grid" id="books">
-        <div class="card">CARD 1</div>
-        <div class="card">CARD 2</div>
-        <div class="card">CARD 3</div>
-        <div class="card">CARD 4</div>
-        <div class="card">CARD 5</div>
-        <div class="card">CARD 6</div>
-        <div class="card">CARD 7</div>
-        <div class="card">CARD 8</div>
-        <div class="card">CARD 9</div>
-        <div class="card">CARD 10</div>
+        <article class="card" id="book-6" data-id="6">
+          <div class="wrapper between">
+            <span class="badge">Sistemas Operacionais</span>
+            <span class="badge">2019</span>
+          </div>
+
+          <h3 class="title">Certificação LPI-1: 101-102</h3>
+          <p class="author">Luciano Antonio Siqueira</p>
+
+          <p class="description custom-scrollbar" tabindex="0">A presente edição reflete a nova versão 5.0 dos objetivos definidos pelo Linux Professional Institute para o exame de Certificação LPI nível 1, efetivos a partir de 2019. Assim como em atualizações anteriores, o foco é reduzir a ênfase em tecnologias que estão ficando defasadas e dar mais atenção àquelas que vêm sendo adotadas por padrão na maioria das distribuições Linux</p>
+
+          <!--
+            "Disponível" quando há exemplar livre
+            "Último exemplar" quando resta apenas um
+            "Emprestado" quando não há
+
+            if (exemplares > 1 && disponivel)        data-available="2"; <- Disponível
+            else if (exemplares === 1 && disponivel) data-available="1"; <- Último exemplar
+            else                                     data-available="0"; <- Emprestado
+          -->
+          <p class="available text-center" data-available="1">Último exemplar</p>
+        </article>
       </div>
     </section>
   </main>
@@ -47,7 +92,7 @@
   <!-- Rodapé -->
   <footer class="footer">
     <div class="container">
-      <p class="center">&copy; 2026 <strong>CodeX</strong>. Todos os direitos reservados.</p>
+      <p class="text-center">&copy; 2026 <strong>CodeX</strong>. Todos os direitos reservados.</p>
       <ul class="list">
         <li class="list-item">Anderson dos Santos Araujo</li>
         <li class="list-item">Daniel Nascimento Gonçalves</li>

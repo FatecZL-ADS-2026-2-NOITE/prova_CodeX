@@ -1,14 +1,15 @@
 :root {
-  --primary: #1e40af;
-  --bg: #f1f2f6;
-  --surface: #ffffff;
-  --text: #16181d;
-  --muted: #6b7280;
-  --border: #e3e5ec;
-
+  --primary: #1c1a25;
+  --bg: #191721;
+  --surface: #201d29;
+  --accent: #322d45;
+  --text: #dbdbdb;
+  --muted: #9ca3af;
+  --border: #322d45;
+  --accent-2: #9259c1;
   --font:
     "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --radius: 20px;
+  --radius: 0.5rem;
   --gap: 1rem;
   --max-width: 1100px;
 }
@@ -16,12 +17,15 @@
 *,
 *::before,
 *::after {
-  /* Define que a largura e altura dos elementos incluem o padding e a borda */
+  /* Largura e altura incluem padding e borda */
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font);
   line-height: 1.5;
   color: var(--text);
@@ -55,7 +59,11 @@ p {
   margin: 0;
 }
 
-.center {
+main {
+  flex: 1;
+}
+
+.text-center {
   text-align: center;
 }
 
@@ -78,7 +86,7 @@ li {
   padding: 0;
 }
 
-.list-item + .list-item:before {
+.list-item + .list-item::before {
   content: "•";
   margin: 0 0.5rem;
   color: var(--muted);
@@ -90,7 +98,9 @@ li {
   font-size: 0.9rem;
 }
 
-/* Centraliza o conteúdo e limita a largura. Usar dentro de header, section, main e footer: <main class="container"></main> */
+/* Centraliza o conteúdo e limita a largura.
+   Use em header, main e footer: <main class="container"></main>
+   Não aninhe um .container dentro de outro. */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -103,7 +113,11 @@ li {
   padding: 1.5rem 0;
 }
 
-/* Itens lado a lado, com espaço entre eles, quebrando de linha no celular: <div class="wrapper"></div> */
+.status {
+  padding: 1.5rem 0 0;
+}
+
+/* Itens lado a lado, com espaço entre eles, quebrando de linha no celular */
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -111,36 +125,50 @@ li {
   gap: var(--gap);
 }
 
+.between {
+  justify-content: space-between;
+}
+
 /* Header */
 .header {
   background: var(--primary);
   color: #fff;
   padding: 1.5rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 /* Toolbar */
 .toolbar {
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: var(--gap) 0;
+  border: 1px solid var(--border);
+  padding: var(--gap);
+  border-radius: var(--radius);
+}
+
+.toolbar-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  align-items: center;
+  gap: var(--gap);
 }
 
 /* Footer */
 .footer {
+  background: var(--primary);
+  border-top: 1px solid var(--border);
   padding: 1.5rem 0;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-/* Os .card se distribuem em colunas automáticas: <div class="grid"><article class="card"></article></div> */
+/* Os .card se distribuem em colunas automáticas */
 .grid {
   display: grid;
-  /* auto-fill: preenche a linha com o máximo de colunas possíveis */
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-  /* dense: preenche os espaços vazios */
   grid-auto-flow: dense;
   gap: var(--gap);
-  margin-top: var(--gap);
+  /* auto-fill: preenche a linha com o máximo de colunas possíveis */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
 }
 
 /* Card */
@@ -148,18 +176,182 @@ li {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  height: 400px;
   padding: 1.25rem;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition:
     transform 0.15s,
+    background-color 0.15s,
+    border-color 0.15s,
     box-shadow 0.15s;
 }
 
-/* Media Query: tela com largura máxima de 480px */
-@media (max-width: 480px) {
+.card:hover {
+  transform: translateY(-0.25rem);
+  background: var(--accent);
+  border-color: var(--accent-2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.badge,
+.available {
+  border: 1px solid var(--border);
+  background: var(--accent-2);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.author {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.description {
+  /* A descrição ocupa o espaço que sobra no card e rola por dentro */
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.available {
+  color: var(--primary);
+}
+
+/* "Disponível" quando há exemplar livre */
+.available[data-available="2"] {
+  background: #a8d5ba;
+}
+
+/* "Último exemplar" quando resta apenas um */
+.available[data-available="1"] {
+  background: #f6e3a1;
+}
+
+/* "Emprestado" quando não há */
+.available[data-available="0"] {
+  background: #e8a0a0;
+}
+
+/* Busca */
+.search {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: var(--gap);
+}
+
+/* Campos de formulário */
+.input,
+.select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+}
+
+.input:focus-visible,
+.select:focus-visible {
+  outline: none;
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 2px rgba(146, 89, 193, 0.5);
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--accent-2);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 0 0 0 2px rgba(146, 89, 193, 0.3);
+}
+
+.btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.btn-small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  accent-color: var(--accent-2);
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* Telas com largura máxima de 700px */
+@media (max-width: 700px) {
   h1 {
     font-size: 1.4rem;
   }
+
+  .toolbar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox {
+    font-size: 0.9rem;
+  }
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--border);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--accent-2);
 }
