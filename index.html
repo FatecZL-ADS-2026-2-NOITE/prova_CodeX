@@ -21,6 +21,7 @@
   <main class="container">
     <!-- Barra de filtro e busca -->
     <section class="toolbar" aria-label="Busca e filtros">
+      <h2 class="sr-only">Busca e Filtros</h2>
       <form class="toolbar-grid" id="filters">
         <!-- Busca -->
         <div class="flex-col">
@@ -48,8 +49,9 @@
       </form>
     </section>
 
-    <!-- Barra de Status -->
+    <!-- Resultado da busca -->
     <section class="status" aria-label="Resultado da busca">
+      <h2 class="sr-only">Resultado da busca</h2>
       <div class="wrapper between">
         <p class="muted"><span id="qty">0</span> livro(s) encontrado(s)</p>
 
@@ -68,6 +70,7 @@
     </section>
 
     <section>
+      <h2 class="sr-only">Detalhes do livro</h2>
       <aside class="drawer" id="drawer"></aside>
       <div class="overlay"></div>
     </section>
