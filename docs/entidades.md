@@ -1,6 +1,26 @@
-# Lista de entidades e atributos
+# Lista de Entidades e Atributos
 
-A entidade Livro representa cada obra cadastrada no catálogo. Seus atributos correspondem diretamente às propriedades existentes nos objetos do arquivo dados.js. O atributo id, do tipo número inteiro, identifica unicamente cada livro. O atributo titulo, do tipo texto, armazena o título da obra; autor, do tipo texto, registra o nome de um ou mais autores; area, do tipo texto, identifica a categoria de conhecimento; ano, do tipo número inteiro, indica o ano de publicação ou edição; exemplares, do tipo número inteiro, representa a quantidade de exemplares livres registrada no catálogo; disponivel, do tipo booleano, informa se existe pelo menos um exemplar livre; e descricao, do tipo texto, apresenta um resumo do conteúdo da obra. O atributo id é o identificador da entidade Livro. A quantidade de exemplares deve ser igual ou superior a zero, e o atributo disponivel deve ser verdadeiro quando exemplares for maior que zero e falso quando o valor for zero.
-A entidade Autor representa a pessoa responsável pela autoria de uma obra. No modelo conceitual, seu atributo principal é nome, do tipo texto, que registra o nome do autor e poderá ser utilizado provisoriamente como identificador, uma vez que o conjunto de dados atual não possui um identificador separado para essa entidade. No arquivo dados.js, os autores são armazenados diretamente na propriedade textual autor da entidade Livro, podendo existir mais de um nome no mesmo campo. Conceitualmente, um autor pode participar da autoria de vários livros, assim como um livro pode possuir vários autores, caracterizando um relacionamento de muitos para muitos (N:N). Essa representação conceitual não significa que o código atual mantenha uma entidade Autor separada ou controle individualmente cada coautor.
-A entidade Área representa a classificação temática utilizada para organizar os livros. Seu atributo nome, do tipo texto, registra a área de conhecimento e pode ser utilizado provisoriamente como identificador no modelo conceitual, considerando que o arquivo atual não possui um identificador numérico próprio para cada área. Os valores efetivamente presentes na propriedade area do arquivo dados.js são Programação, Banco de Dados, Sistemas Operacionais, Inteligência Artificial e Segurança. Uma área pode classificar vários livros, enquanto cada livro está associado a uma única área no modelo atual, caracterizando um relacionamento de um para muitos (1:N) entre Área e Livro.
-Os relacionamentos entre as entidades são definidos da seguinte forma: um Autor pode participar da autoria de vários Livros, e um Livro pode possuir vários Autores, estabelecendo uma relação N:N entre Autor e Livro; uma Área pode classificar vários Livros, enquanto cada Livro pertence a uma única Área no modelo atual, estabelecendo uma relação 1:N entre Área e Livro. Para representar adequadamente o relacionamento N:N entre Autor e Livro em um futuro modelo relacional, poderá ser criada uma entidade associativa denominada LivroAutor. Os atributos e relacionamentos conceituais apresentados representam uma proposta de organização dos dados, enquanto a implementação atual mantém autor e area como propriedades textuais dentro de cada objeto da entidade Livro, conforme apresenta a estrutura existente em dados.js.
+Projeto Desafio 09 — Catálogo da Biblioteca do Curso
+Instituição: FATEC Zona Leste — Análise e Desenvolvimento de Sistemas
+Membros: Anderson, Daniel, Rafael e Vitor
+Time: CodeX
+Cliente: Coordenação do curso de Análise e Desenvolvimento de Sistemas
+
+## 1.  Apresentação do modelo
+O modelo tem como objetivo organizar os dados necessários ao catálogo da biblioteca, permitindo que os estudantes pesquisem livros por título ou autor, filtrem as obras por área de conhecimento e consultem a disponibilidade dos exemplares. Para isso, são consideradas três entidades principais: Livro, Autor e Area, que representam os elementos centrais do projeto e constituem a base conceitual para a futura construção do Modelo Entidade-Relacionamento (MER).
+
+## 2. Entidades e atributos
+Livro: representa cada obra cadastrada no catálogo, contendo id (chave primária), titulo, autorId (chave estrangeira), areaId (chave estrangeira), ano, exemplares, disponivel e descricao.
+Autor: representa os responsáveis pela autoria das obras, com os atributos id (chave primária) e nome.
+Area: representa as categorias utilizadas para organizar e filtrar os livros, com id (chave primária), nome e descricao.
+Os identificadores permitem distinguir os registros, enquanto os demais atributos armazenam as informações necessárias à identificação, classificação e consulta das obras.
+
+## 3. Relacionamentos e regras de negócio
+O modelo estabelece dois relacionamentos do tipo um para muitos (1):
+Autor (1) → (N) Livro: um autor pode estar associado a vários livros, mas cada livro possui um único autor no modelo proposto.
+Area (1) → (N) Livro: uma área pode classificar vários livros, mas cada livro pertence a uma única área de conhecimento.
+Essas associações são representadas pelos atributos autorId e areaId na entidade Livro, que funcionam como chaves estrangeiras para referenciar as entidades Autor e Area. Dessa forma, o modelo evita a repetição desnecessária dos dados de identificação dessas entidades e organiza suas relações.
+Quanto às regras de negócio, a quantidade de exemplares livres não pode ser negativa e determina a situação apresentada no catálogo: “Disponível” quando houver mais de um exemplar, “Último exemplar” quando restar apenas um e “Emprestado” quando não houver exemplares livres.
+
+## 4. Relação com a implementação
+Atualmente, os livros são armazenados no array LIVROS, no arquivo dados.js, com os dados de autor e área registrados diretamente em cada objeto. Assim, a separação das três entidades e o uso de chaves primárias e estrangeiras representam a proposta conceitual para o futuro MER, não necessariamente a estrutura existente no código atual. O catálogo informa a disponibilidade, mas não realiza o gerenciamento completo de empréstimos.
