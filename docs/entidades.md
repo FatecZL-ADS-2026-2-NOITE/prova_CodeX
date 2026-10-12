@@ -24,5 +24,3 @@ Quanto às regras de negócio, a quantidade de exemplares livres não pode ser n
 
 ## 4. Relação com a implementação
 Atualmente, os livros são armazenados no array LIVROS, no arquivo dados.js, com os dados de autor e área registrados diretamente em cada objeto. Assim, a separação das três entidades e o uso de chaves primárias e estrangeiras representam a proposta conceitual para o futuro MER, não necessariamente a estrutura existente no código atual. O catálogo informa a disponibilidade, mas não realiza o gerenciamento completo de empréstimos.
-
-
