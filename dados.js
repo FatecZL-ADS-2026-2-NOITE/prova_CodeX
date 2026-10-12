@@ -18,7 +18,7 @@ const LIVROS = [
     exemplares: 3,
     disponivel: true,
     descricao:
-      "Os algoritmos mais utilizados já foram descobertos, testados e comprovados. O livro Entendendo Algoritmos, Segunda Edição torna o aprendizado deles algo extremamente simples. Com explicações didáticas, mais de 400 ilustrações divertidas e exemplos relevantes, esta é a maneira perfeita de dominar o poder dos algoritmos — sem exigir conhecimentos avançados de matemática!",
+      "Os algoritmos mais utilizados já foram descobertos, testados e comprovados. O livro Entendendo Algoritmos, Segunda Edição torna o aprendizado deles algo extremamente simples. Com explicações didáticas, mais de 400 ilustrações divertidas e exemplos relevantes, esta é a maneira perfeita de dominar o poder dos algoritmos — sem exigir conhecimentos avançados de matemática! \n\n\nO livro apresenta os algoritmos mais importantes, incluindo algoritmos de busca e ordenação, estruturas de dados, algoritmos recursivos, programação dinâmica e muito mais. Cada algoritmo é explicado com uma linguagem clara e concisa, tornando o conteúdo acessível a todos os leitores.",
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ const LIVROS = [
     autor: " Thomas Nield",
     area: "Banco de Dados",
     ano: 2016,
-    exemplares: 0,
+    exemplares: 1,
     disponivel: false,
     descricao:
       "Atualmente as empresas estão coletando dados a taxas exponenciais e mesmo assim poucas pessoas sabem como acessá-los de maneira relevante. Se você trabalha em uma empresa ou é profissional de TI, este curto livro lhe ensinará como obter e transformar dados com o SQL de maneira significativa. Você dominará rapidamente os aspectos básicos do SQL e aprenderá como criar seus próprios bancos de dados.",
@@ -72,7 +72,7 @@ const LIVROS = [
     autor: "Luciano Antonio Siqueira",
     area: "Sistemas Operacionais",
     ano: 2019,
-    exemplares: 0,
+    exemplares: 3,
     disponivel: false,
     descricao:
       "A presente edição reflete a nova versão 5.0 dos objetivos definidos pelo Linux Professional Institute para o exame de Certificação LPI nível 1, efetivos a partir de 2019. Assim como em atualizações anteriores, o foco é reduzir a ênfase em tecnologias que estão ficando defasadas e dar mais atenção àquelas que vêm sendo adotadas por padrão na maioria das distribuições Linux",
@@ -118,7 +118,7 @@ const LIVROS = [
     autor: " João Eriberto Mota Filho",
     area: "Segurança",
     ano: 2013,
-    exemplares: 0,
+    exemplares: 2,
     disponivel: false,
     descricao:
       "Este livro utiliza o tcpdump, exaustivamente, para demonstrar a teoria com base em capturas de tráfego e, consequentemente, ensinar sua análise. Todo o trabalho está dividido em uma introdução e cinco partes, a saber: conceitos básicos; protocolos básicos em redes TCP/IP e sua análise; conhecimentos específicos em redes TCP/IP e sua análise; tráfegos diversos e sistemas específicos; apêndices.",
