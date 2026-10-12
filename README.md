@@ -1,6 +1,6 @@
 # 📚 Catálogo da Biblioteca do Curso
 
-Projeto desenvolvido pelo time **CodeX** para o **Projeto Integrador — Projeto Desafio 01**, da disciplina de Análise e Desenvolvimento de Sistemas da **FATEC Zona Leste**.
+Projeto desenvolvido pelo time *CodeX* para o *Projeto Integrador — Projeto Desafio 09, da disciplina de Análise e Desenvolvimento de Sistemas da **FATEC Zona Leste*.
 
 ---
 
@@ -16,7 +16,7 @@ O projeto utiliza dados estáticos em JavaScript e funciona diretamente no naveg
 
 ## ✨ Funcionalidades
 
-- 📚 Exibição dinâmica dos livros cadastrados no array `LIVROS`.
+- 📚 Exibição dinâmica dos livros cadastrados no array LIVROS.
 - 🔎 Busca por título ou autor enquanto o usuário digita.
 - 🗂️ Filtro por área de conhecimento.
 - ✅ Filtro para mostrar somente livros disponíveis.
@@ -26,9 +26,9 @@ O projeto utiliza dados estáticos em JavaScript e funciona diretamente no naveg
 - 🧹 Botão para limpar todos os filtros.
 - 📋 Tela de detalhes do livro selecionado.
 - 🏷️ Selo de situação calculado pelo JavaScript:
-  - **Disponível**;
-  - **Último exemplar**;
-  - **Emprestado**.
+  - *Disponível*;
+  - *Último exemplar*;
+  - *Emprestado*.
 - 📱 Interface responsiva para telas menores, incluindo largura aproximada de 400 px.
 - 🧱 Estrutura semântica com cabeçalho, conteúdo principal e rodapé.
 
@@ -42,9 +42,9 @@ O projeto utiliza dados estáticos em JavaScript e funciona diretamente no naveg
 - CSS3;
 - JavaScript puro;
 - Arrays e objetos;
-- Métodos de array como `filter`, `forEach`, `find` e `includes`;
+- Métodos de array como filter, forEach, find e includes;
 - Manipulação do DOM;
-- Eventos `input`, `change` e `click`.
+- Eventos input, change e click.
 
 O projeto não utiliza frameworks ou bibliotecas externas. Também não utiliza back-end, banco de dados, armazenamento local ou cookies.
 
@@ -52,7 +52,7 @@ O projeto não utiliza frameworks ou bibliotecas externas. Também não utiliza 
 
 ## 📁 Estrutura do projeto
 
-```text
+text
 prova_CodeX/
 ├── index.html              # Estrutura da página
 ├── style.css               # Estilos e responsividade
@@ -62,7 +62,7 @@ prova_CodeX/
 │   ├── requisitos.md        # Documento de requisitos
 │   └── entidades.md         # Entidades, atributos e relacionamentos
 └── README.md               # Documentação do projeto
-```
+
 
 ---
 
@@ -72,33 +72,33 @@ Cada livro é representado por um objeto com as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 |---|---|---|
-| `id` | Número | Identificador do livro |
-| `titulo` | Texto | Título da obra |
-| `autor` | Texto | Autor ou autores |
-| `area` | Texto | Área de conhecimento |
-| `ano` | Número | Ano de publicação ou edição |
-| `exemplares` | Número | Quantidade de exemplares livres |
-| `disponivel` | Booleano | Indica se há pelo menos um exemplar livre |
-| `descricao` | Texto | Resumo da obra |
+| id | Número | Identificador do livro |
+| titulo | Texto | Título da obra |
+| autor | Texto | Autor ou autores |
+| area | Texto | Área de conhecimento |
+| ano | Número | Ano de publicação ou edição |
+| exemplares | Número | Quantidade de exemplares livres |
+| disponivel | Booleano | Indica se há pelo menos um exemplar livre |
+| descricao | Texto | Resumo da obra |
 
-O array atual contém **10 livros**, e os cartões são gerados automaticamente pelo JavaScript. Portanto, a inclusão de um novo objeto em `dados.js` deve gerar um novo cartão sem alteração manual do HTML.
+O array atual contém *10 livros*, e os cartões são gerados automaticamente pelo JavaScript. Portanto, a inclusão de um novo objeto em dados.js deve gerar um novo cartão sem alteração manual do HTML.
 
 ---
 
 ## ▶️ Como executar
 
 1. Clone este repositório ou baixe seus arquivos.
-2. Abra o arquivo `index.html` em um navegador moderno.
+2. Abra o arquivo index.html em um navegador moderno.
 3. Utilize a busca e os filtros para consultar o catálogo.
 
 ### Executando com Git
 
-```bash
+bash
 git clone https://github.com/FatecZL-ADS-2026-2-NOITE/prova_CodeX.git
 cd prova_CodeX
-```
 
-Depois, abra `index.html` no navegador.
+
+Depois, abra index.html no navegador.
 
 Não é necessário instalar dependências ou iniciar um servidor para executar a versão atual.
 
@@ -108,7 +108,7 @@ Não é necessário instalar dependências ou iniciar um servidor para executar 
 
 ### Time
 
-**CodeX**
+*CodeX*
 
 ### Integrantes
 
@@ -117,22 +117,22 @@ Não é necessário instalar dependências ou iniciar um servidor para executar 
 - Rafael Ramos Almeida
 - Vitor Hideki Lopes Kawahara
 
-### Divisão de tarefas registrada
+### Divisão de tarefas
 
-A divisão abaixo consolida as informações atualmente registradas no README, no histórico de commits e nas tarefas públicas do repositório. Ela deve ser conferida com o Kanban antes da entrega final:
+As responsabilidades dos integrantes estão organizadas da seguinte forma:
 
-- **Anderson dos Santos Araujo:** implementação da página de detalhes, funções principais, dados e melhorias de acessibilidade.
-- **Daniel Nascimento Gonçalves:** desenvolvimento da página de listagem e colaboração na implementação da interface.
-- **Rafael Ramos Almeida:** documentação de requisitos e entidades, organização do projeto e colaboração na interface.
-- **Vitor Hideki Lopes Kawahara:** desenvolvimento da página de listagem e colaboração na implementação da interface.
+- *Anderson dos Santos Araujo:* implementação da página de detalhes, funções principais, dados e melhorias de acessibilidade.
+- *Daniel Nascimento Gonçalves:* desenvolvimento do readme e colaboração na revisão do teste da aplicação do projeto.
+- *Rafael Ramos Almeida:* documentação de requisitos e entidades, organização do projeto e colaboração na interface.
+- *Vitor Hideki Lopes Kawahara:* desenvolvimento da página de listagem e colaboração na implementação da interface.
 
 ---
 
 ## 🎓 Requisitos acadêmicos atendidos
 
-- [x] Arquivo HTML único (`index.html`).
-- [x] CSS externo (`style.css`).
-- [x] Dados separados da lógica (`dados.js` e `script.js`).
+- [x] Arquivo HTML único (index.html).
+- [x] CSS externo (style.css).
+- [x] Dados separados da lógica (dados.js e script.js).
 - [x] Array com mais de oito objetos.
 - [x] Cada objeto com mais de cinco propriedades.
 - [x] Propriedades numéricas e booleanas.
@@ -160,29 +160,29 @@ Esta versão não possui:
 - integração com o sistema real da biblioteca;
 - atualização automática da disponibilidade.
 
-A disponibilidade exibida é baseada nos dados estáticos cadastrados em `dados.js`.
+A disponibilidade exibida é baseada nos dados estáticos cadastrados em dados.js.
 
 ---
 
 ## 📝 Pendências antes da entrega
 
-- [ ] Revisar a consistência entre `exemplares` e `disponivel`.
+- [ ] Revisar a consistência entre exemplares e disponivel.
 - [ ] Confirmar que o selo “Disponível”, “Último exemplar” ou “Emprestado” corresponde aos dados de cada livro.
 - [ ] Executar e registrar os testes de busca, filtros, detalhes, estado vazio e responsividade.
 - [ ] Conferir se o Kanban está acessível, com responsáveis e movimentações registradas.
 - [ ] Revisar a divisão de tarefas com base no Kanban definitivo.
 - [ ] Atualizar o documento de requisitos após os testes finais.
-- [ ] Completar a representação do MER em `docs/entidades.md`, se necessário.
+- [ ] Completar a representação do MER em docs/entidades.md, se necessário.
 - [ ] Ensaiar a apresentação com a participação dos quatro integrantes.
 
 ---
 
 ## 🔗 Documentação complementar
 
-- **Documento de requisitos**
-- **Entidades, atributos e relacionamentos**
-- **Repositório no GitHub**
-- **Kanban do projeto**
+- [Documento de requisitos](docs/requisitos.md)
+- [Entidades, atributos e relacionamentos](docs/entidades.md)
+- [Repositório no GitHub](https://github.com/FatecZL-ADS-2026-2-NOITE/prova_CodeX)
+- *Kanban do projeto*
 
 ---
 
