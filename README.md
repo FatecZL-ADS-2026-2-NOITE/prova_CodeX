@@ -77,7 +77,7 @@ Cada livro é representado por um objeto com as seguintes propriedades:
 | `autor` | Texto | Autor ou autores |
 | `area` | Texto | Área de conhecimento |
 | `ano` | Número | Ano de publicação ou edição |
-| `exemplares` | Número | Quantidade de exemplares livres |
+| `exemplares` | Número | Quantidade de exemplares |
 | `disponivel` | Booleano | Indica se há pelo menos um exemplar livre |
 | `descricao` | Texto | Resumo da obra |
 
