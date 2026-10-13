@@ -59,8 +59,8 @@ prova_CodeX/
 ├── dados.js                # Array de livros e seus dados
 ├── script.js               # Renderização, busca, filtros e detalhes
 ├── docs/
-│   ├── requisitos.md        # Documento de requisitos
-│   └── entidades.md         # Entidades, atributos e relacionamentos
+│   ├── requisitos.pdf        # Documento de requisitos
+│   └── entidades.pdf         # Entidades, atributos e relacionamentos
 └── README.md               # Documentação do projeto
 ```
 
