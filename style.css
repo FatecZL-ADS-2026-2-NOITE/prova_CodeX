@@ -489,7 +489,7 @@ input[type="checkbox"]:focus-visible {
   gap: var(--gap);
 }
 
-#drawer:not(:empty) + .overlay {
+.drawer:not(:empty) + .overlay {
   position: fixed;
   top: 0;
   left: 0;
